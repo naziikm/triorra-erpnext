@@ -1,117 +1,215 @@
-<div align="center">
-  <img src="docs/public/frappe-docker.png" alt="Frappe Docker" width="80" />
-  <h1>Frappe Docker</h1>
-  <p>Docker images and orchestration for Frappe applications.</p>
-  <p>
-    <a href="https://github.com/frappe/frappe_docker/actions/workflows/core-build-stable.yml">
-      <img src="https://img.shields.io/github/actions/workflow/status/frappe/frappe_docker/core-build-stable.yml?branch=main&label=Build%20Stable" alt="Build Stable" />
-    </a>
-    <a href="https://github.com/frappe/frappe_docker/actions/workflows/core-build-develop.yml">
-      <img src="https://img.shields.io/github/actions/workflow/status/frappe/frappe_docker/core-build-develop.yml?branch=main&label=Build%20Develop" alt="Build Develop" />
-    </a>
-    <a href="https://frappe.github.io/frappe_docker/">
-      <img src="https://img.shields.io/badge/Docs-Open%20Site-0A7EA4" alt="Docs" />
-    </a>
-  </p>
-</div>
+# TriOrra ERPNext
 
-## What is this?
+> **ERPNext Implementation • Business Analysis • Customization • ERP Learning Project**
 
-This repository is the official container setup for Frappe applications.
+TriOrra ERPNext is a local ERPNext implementation and customization project created to learn and demonstrate how an ERP system can be configured around real business processes.
 
-It provides Docker images, Compose configurations, and documentation for running Frappe applications, including ERPNext, CRM, Helpdesk, and other Frappe apps, in containers.
+The project focuses on understanding ERP workflows from both **business and technical perspectives**, including requirements analysis, configuration, customization, reporting, and process improvement.
 
-Use it if you want to:
+---
 
-- run ERPNext, CRM, Helpdesk, or other Frappe apps with Docker
-- start from a quick demo setup
-- use production-ready Docker images and Compose setups
-- build custom app images
-- deploy and operate Frappe in production
+## 🎯 Project Objectives
 
-## Repository Structure
+The main objectives of this project are to:
 
-```bash
-frappe_docker/
-├── docs/                 # Complete documentation
-├── overrides/            # Docker Compose configurations for different scenarios
-├── compose.yaml          # Base Compose File for production setups
-├── pwd.yml               # Single Compose File for quick disposable demo
-├── images/               # Dockerfiles for building Frappe images
-├── development/          # Development environment configurations
-├── devcontainer-example/ # VS Code devcontainer setup
-└── resources/            # Helper scripts and configuration templates
+* Understand ERPNext implementation and configuration
+* Analyze and document business requirements
+* Map real-world business processes into ERP workflows
+* Configure standard ERPNext modules
+* Create custom fields and DocTypes
+* Develop customized workflows and business rules
+* Configure roles and permissions
+* Build reports for business decision-making
+* Understand accounting and inventory processes
+* Practice ERP customization using the Frappe Framework
+* Document implementation decisions and project progress
+
+---
+
+## 🏢 Business Areas
+
+The project explores key business functions such as:
+
+### Finance & Accounting
+
+* Chart of Accounts
+* Accounts Receivable
+* Accounts Payable
+* Payments
+* Expenses
+* Financial reporting
+
+### Sales
+
+* Customers
+* Quotations
+* Sales Orders
+* Sales Invoices
+* Payments
+* Customer management
+
+### Purchasing
+
+* Suppliers
+* Purchase Orders
+* Purchase Invoices
+* Supplier payments
+* Purchase management
+
+### Inventory
+
+* Items
+* Warehouses
+* Stock transactions
+* Stock balance
+* Inventory management
+
+### Business Operations
+
+* Workflows
+* User roles
+* Permissions
+* Approval processes
+* Business process mapping
+* Reporting and analysis
+
+---
+
+## 🛠️ Technology Stack
+
+| Technology           | Purpose                     |
+| -------------------- | --------------------------- |
+| **ERPNext**          | ERP application             |
+| **Frappe Framework** | Application framework       |
+| **MariaDB**          | Database                    |
+| **Redis**            | Caching and background jobs |
+| **Docker**           | Development environment     |
+| **Docker Compose**   | Container orchestration     |
+
+---
+
+## 🐳 Local Environment
+
+The project runs locally using Docker.
+
+**Local ERPNext site:**
+
+```text
+http://triorra.localhost:8080
 ```
 
-> This section describes the structure of **this repository**, not the Frappe framework itself.
+The environment consists of separate containers for:
 
-### Key Components
+* ERPNext backend
+* Frontend / Nginx
+* MariaDB
+* Redis Cache
+* Redis Queue
+* Background workers
+* Scheduler
+* WebSocket service
 
-- `docs/` - Canonical documentation for all deployment and operational workflows
-- `overrides/` - Opinionated Compose overrides for common deployment patterns
-- `compose.yaml` - Base compose file for production setups (production)
-- `pwd.yml` - Disposable demo environment (non-production)
+---
 
-## Documentation
+## 📋 Implementation Approach
 
-The full `frappe_docker` documentation is available in [`docs/`](docs/) and published at [frappe.github.io/frappe_docker](https://frappe.github.io/frappe_docker/).
+The project follows an implementation-oriented approach:
 
-### Recommended entry points:
-
-- **New here:** [Getting Started Guide](docs/getting-started.md)
-- **Choosing a setup:** [Deployment methods](docs/01-getting-started/01-choosing-a-deployment-method.md)
-- **ARM64 notes:** [ARM64](docs/01-getting-started/03-arm64.md)
-- **Container setup overview:** [Container Setup Overview](docs/02-setup/01-overview.md)
-- **Running in production:** [Production docs](docs/03-production/)
-- **Operating a deployment:** [Operations docs](docs/04-operations/)
-- **Development workflows:** [Development](docs/05-development/01-development.md)
-- **FAQ:** [Frequently Asked Questions](https://github.com/frappe/frappe_docker/wiki/Frequently-Asked-Questions)
-
-## Prerequisites
-
-- [Docker](https://docs.docker.com/get-docker/)
-- [Docker Compose v2](https://docs.docker.com/compose/)
-- [git](https://docs.github.com/en/get-started/getting-started-with-git/set-up-git)
-
-> For Docker basics and best practices refer to Docker's [documentation](http://docs.docker.com)
-
-## Demo setup
-
-The fastest way to try Frappe locally is with the single-file demo setup in `pwd.yml`.
-
-### Try on your environment
-
-> **⚠️ Disposable demo only**
->
-> **This setup is intended for short-lived evaluation only.** You will not be able to install custom apps to this setup. For production deployments, custom configurations, and detailed explanations, see the full documentation.
-
-First clone the repo:
-
-```sh
-git clone https://github.com/frappe/frappe_docker
-cd frappe_docker
+```text
+Business Requirement
+        ↓
+Requirement Analysis
+        ↓
+Process Mapping
+        ↓
+ERPNext Standard Feature
+        ↓
+Configuration
+        ↓
+Customization (if required)
+        ↓
+Testing
+        ↓
+Documentation
 ```
 
-Then run:
+The goal is to understand when a requirement can be handled through **standard ERPNext configuration** and when a **customization** is required.
 
-```sh
-docker compose -f pwd.yml up -d
-```
+---
 
-Wait for a couple of minutes for ERPNext site to be created or check `create-site` container logs before opening browser on port `8080`. (username: `Administrator`, password: `admin`)
+## 🔧 Customization Areas
 
-## Contributing
+Planned customization work includes:
 
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+* Custom DocTypes
+* Custom Fields
+* Custom Scripts
+* Workflows
+* Role and Permission configuration
+* Custom Reports
+* Business Rules
+* Form customization
+* ERP process automation
 
-This repository is only for container related stuff. You also might want to contribute to:
+---
 
-## Resources
+## 📊 Learning & Documentation
 
-- [Frappe framework](https://github.com/frappe/frappe),
-- [ERPNext](https://github.com/frappe/erpnext),
-- [Frappe Bench](https://github.com/frappe/bench).
+This repository will also document:
 
-## License
+* Business requirements
+* Process flows
+* ERP configuration decisions
+* Customization requirements
+* Testing scenarios
+* Reports
+* Implementation notes
+* Problems encountered and solutions
+* Project progress
 
-This repository is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+---
+
+## 🔐 Security
+
+Sensitive configuration files and credentials are intentionally excluded from this repository.
+
+> **Never commit `.env`, passwords, API keys, database credentials, or other secrets to GitHub.**
+
+Local environment variables are maintained separately.
+
+---
+
+## 🚧 Project Status
+
+**Status: 🟡 In Progress**
+
+Current focus:
+
+* ERPNext local implementation
+* Understanding ERPNext modules
+* Business process analysis
+* ERP configuration
+* Customization planning
+* Git/GitHub project documentation
+
+Future work will be added incrementally as the project develops.
+
+---
+
+## 🎓 Purpose of This Repository
+
+This repository serves as a **learning and portfolio project** demonstrating practical experience with:
+
+**ERPNext + Business Analysis + ERP Implementation + Customization**
+
+The project is intended to demonstrate not only technical knowledge, but also the ability to understand business requirements and translate them into ERP processes.
+
+---
+
+## 👩‍💻 Project
+
+**Project:** TriOrra ERPNext
+**Type:** ERP Implementation & Customization Learning Project
+**Environment:** Local Development
+**Platform:** ERPNext / Frappe
+**Status:** In Progress
